@@ -10,6 +10,7 @@ import Viewer from './Viewer.tsx';
 import Editor from './Editor.jsx';
 import Progress from './Progress.tsx';
 import Drawer from './Drawer.tsx';
+import {PdfViewer} from './PdfViewer.tsx';
 import HideSongList from './HideSongList';
 
 import { BrowserRouter, Route, Switch, useHistory} from 'react-router-dom';

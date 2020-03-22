@@ -8,6 +8,7 @@
 		],
 		"preserveConstEnums": true,
 		"sourceMap": true,
+		"downlevelIteration": true,
 							    
 		"plugins": [
 			{
