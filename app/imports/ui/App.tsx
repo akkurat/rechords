@@ -170,6 +170,8 @@ class App extends React.Component<AppProps, AppStates> {
 
       document.documentElement.classList.value = theme
 
+      document.documentElement.classList.value = theme
+
       return (
         <BrowserRouter>
           <Provider store={this.store} >
