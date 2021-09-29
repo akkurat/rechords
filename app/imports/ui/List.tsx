@@ -328,6 +328,7 @@ class List extends React.Component<ListProps & RouteComponentProps, ListState> {
                 {hidden: this.props.hidden},
                 {noscroll: this.state.tagsopen}
                 )}>
+                <div className="filterWrapper">
                 <div className="filter">
                     <input type="text" 
                         placeholder="Filtern…" 
@@ -350,6 +351,7 @@ class List extends React.Component<ListProps & RouteComponentProps, ListState> {
                     title="Schlagwortverzeichnis" 
                     songs={this.props.songs}
                     />
+                    </div>
                 <ul>
                     {Array.from(groups, ([group, songs]) => {
                             return <ListGroup user={this.props.user} label={group} songs={songs} key={group} onClickHandler={this.props.hideOnMobile}/>
