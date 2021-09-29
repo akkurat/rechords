@@ -55,7 +55,7 @@ class ListItem extends React.Component<ListItemProps> {
         const darling_or_not = <span onClick={this.toggleDarling} className={"darling " + is_darling}>{darling_icon}</span>
         
         return (
-            <li><NavLink onClick={this.props.onClickHandler} to={routePath(View.view, this.props.song)}
+            <li className="listitem"><NavLink onClick={this.props.onClickHandler} to={routePath(View.view, this.props.song)}
                 activeClassName="selected">
                     <span className="title">{this.props.song.title}</span>
                     <span className="author">{this.props.song.author}</span>
