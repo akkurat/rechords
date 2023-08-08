@@ -5,7 +5,6 @@ import {Song} from '../api/collections';
 import Sheet from './Sheet';
 import {navigateCallback, View} from "../api/helpers";
 import {Button} from "./Button";
-import {Cancel} from "./Icons";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 
 type PrinterProps = {
@@ -36,7 +35,7 @@ const Printer = ({song, history}: PrinterProps & RouteComponentProps) => {
 
   const settings = <aside id="rightSettings">
     <Button onClick={navigateCallback(history, View.view, song)}>
-      <Cancel />
+      {/* <Cancel /> */}
     </Button>
   </aside>
 

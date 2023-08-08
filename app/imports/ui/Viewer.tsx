@@ -8,7 +8,6 @@ import {navigateCallback, routePath, userMayWrite, View} from '../api/helpers';
 import { MobileMenuShallow } from "./MobileMenu";
 import Sheet from './Sheet';
 
-import {Conveyor, ConveyorActive, Day, Flat, LayoutH, LayoutV, Night, Printer, Sharp} from './Icons.jsx';
 import {Button} from "./Button";
 
 
@@ -186,13 +185,13 @@ export default class Viewer extends React.Component<ViewerProps, ViewerStates> {
             keym={key}
           />
         <Button onClick={this.toggleAutoScroll}>
-          {this.state.autoscroll ? <ConveyorActive /> : <Conveyor />}
+          {/* {this.state.autoscroll ? <ConveyorActive /> : <Conveyor />} */}
         </Button>
         <Button onClick={this.props.toggleTheme}>
-          {this.props.themeDark ? <Day /> : <Night />}
+          {/* {this.props.themeDark ? <Day /> : <Night />} */}
         </Button>
         <Button onClick={this.toggleColumns}>
-          {this.state.columns ? <LayoutH /> : <LayoutV />}
+          {/* {this.state.columns ? <LayoutH /> : <LayoutV />} */}
         </Button>
       </aside>
 
@@ -212,14 +211,14 @@ export default class Viewer extends React.Component<ViewerProps, ViewerStates> {
 
       <>
         <MobileMenuShallow>
-            <span onClick={ _ => this.increaseTranspose()} id="plus"><Sharp /></span>
-            <span onClick={ _ => this.decreaseTranspose()} id="minus"><Flat /></span>
+            <span onClick={ _ => this.increaseTranspose()} id="plus">#</span>
+            <span onClick={ _ => this.decreaseTranspose()} id="minus">b</span>
             <span onClick={this.toggleAutoScroll} id={'scroll-toggler'} className={this.state.autoscroll ? 'active' : ''}>
-              <Conveyor />
+              {/* <Conveyor /> */}
             </span>
 
             <span onClick={ _ => this.props.toggleTheme(undefined)} id="theme-toggler">
-              {this.props.themeDark ? <Day /> : <Night />}
+              {/* {this.props.themeDark ? <Day /> : <Night />} */}
             </span>
         </MobileMenuShallow>
 

@@ -8,7 +8,6 @@ import { MouseEventHandler } from 'react'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollHideEffect, useScrollHideEffectRef } from '../api/helpers'
-import { Menu } from './Icons.jsx'
 
 
 import './mobileMenuStyle.less'
@@ -34,7 +33,7 @@ export const MobileMenu: FC<MobileMenuProps> = (p) => {
   useScrollHideEffectRef(ref, 64)
 
   return <div className={classes} ref={ref}>
-    <span onClick={toggle} id="menu"><Menu /></span>
+    <span onClick={toggle} id="menu"></span>
     <span className="username"> 
       <Link onClick={toggle} to="/user">{Meteor.user().profile.name}</Link>
     </span>

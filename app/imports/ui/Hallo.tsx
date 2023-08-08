@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import { withRouter } from 'react-router-dom'
 import { Song } from '../api/collections'
-import { Header } from './Icons'
 
 import './halloStyle.less'
 
@@ -26,7 +25,6 @@ class Hallo extends React.Component<HalloProps> {
     return (
       <div className="content" id="hallo">
         <p><em>Hölibu und Wikipedia hatten ein Kind zusammen – herausgekommen ist das…</em></p>
-        <Header />
         <MetaContent songs={this.props.songs} title="Hallo" />
       </div>
     )

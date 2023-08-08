@@ -6,7 +6,7 @@ import Source from './Source';
 import RevBrowser from './RevBrowser';
 import Preview from './Preview';
 import Drawer from './Drawer';
-import { Ok, Cancel } from './Icons.jsx';
+// import { Ok, Cancel } from './Icons';
 import { Song } from '../api/collections';
 import { Meteor } from 'meteor/meteor';
 import {navigateTo, View} from "../api/helpers";
@@ -94,8 +94,8 @@ class Editor extends Component<{song: Song} & RouteComponentProps, {md: string, 
       return (
         <div id="editor" onContextMenu={this.handleContextMenu}>
           <MobileMenuShallow>
-              <span onClick={this.handleContextMenu} id="plus"><Ok /></span>
-              <span onClick={this.props.history.goBack} id="minus"><Cancel /></span>
+              <span onClick={this.handleContextMenu} id="plus"></span>
+              <span onClick={this.props.history.goBack} id="minus"></span>
           </MobileMenuShallow>
 
           <Drawer onClick={this.handleContextMenu} className="list-colors">

@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as DocumentTitle from 'react-document-title';
 
-import { Header } from './Icons.jsx';
 
 
 export default class Login extends React.Component<{}, { one: string, two: string, three: string, four: string, msg: string }> {
@@ -90,7 +89,6 @@ export default class Login extends React.Component<{}, { one: string, two: strin
 
         return (
             <section className="content" id="home">
-                <Header />
 
                 <p>Das Lieder-Wiki für Jublanerinnen und Jublaner. Logge dich erst mal ein mit…</p>
                 <div className="fourWords">
