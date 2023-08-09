@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { ClipboardEventHandler, Component } from 'react';
 
 
 type SourceProps = {
   md: string,
   updateHandler?: Function,
   readOnly?: boolean,
-  className: string
+  className: string,
+  onPasteInterceptor?: (v: string) => string
 };
 
 export default class Source extends Component<SourceProps, {}> {
@@ -22,30 +23,56 @@ export default class Source extends Component<SourceProps, {}> {
     }
   }
 
+  onPasteHandler = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
+    if (this.props.onPasteInterceptor) {
+      const inText = e.clipboardData.getData('Text')
+      const newText = this.props.onPasteInterceptor(inText)
+      if (inText != newText) {
+        e.preventDefault()
+        // The working way (preserving undo)
+        // officially deprecated but with no replacement
+        document.execCommand('insertText', false, newText);
+
+        // The "new" way -- clumsy and breaking undo...
+/*         const start = this.source.current.selectionStart
+        const end = this.source.current.selectionEnd
+
+        const valueBefore = this.props.md
+
+        const inFrontSelection = valueBefore.substring(0, start);
+        // const selectionText = valueBefore.substring(start, end);
+        const afterSelection = valueBefore.substring(end);
+        this.props.updateHandler(inFrontSelection + newText + afterSelection) */
+
+      }
+    }
+  }
+
   render() {
     // Height estimation
     let row_matches = this.props.md.match(/\n/g)
     let rows = 0;
 
     if (row_matches != null) {
-        rows = row_matches.length * 1.8 + 10;
+      rows = row_matches.length * 1.8 + 10;
     }
 
     rows = Math.max(50, rows);
 
     let style = {
-        minHeight: rows + 'em',
+      minHeight: rows + 'em',
     }
 
     return (
       <div className={"content " + this.props.className}>
-          {this.props.children}
+        {this.props.children}
         <textarea
           ref={this.source}
           onChange={this.callUpdateHandler}
           value={this.props.md}
           style={style}
           readOnly={this.props.readOnly}
+          onPaste={this.onPasteHandler}
         />
       </div>
     )
